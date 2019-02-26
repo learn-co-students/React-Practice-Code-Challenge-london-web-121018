@@ -77,3 +77,8 @@ body {
   width: 700px;
   margin: auto;
 }
+
+.wallet {
+  position: absolute;
+  margin: 60px 20px;
+}
