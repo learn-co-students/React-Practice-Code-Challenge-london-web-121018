@@ -7,7 +7,6 @@ const FormContainer = ({budget, addMoneyToWallet}) => {
         <form onSubmit={(event) => addMoneyToWallet(event)} >
           Enter the amount you would like to add to your wallet:
           <input type="number" name="amount" />
-          <input type="submit" />
         </form>
       </div>
     </Fragment>
