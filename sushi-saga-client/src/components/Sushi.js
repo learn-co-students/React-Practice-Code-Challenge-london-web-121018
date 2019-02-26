@@ -23,7 +23,11 @@ class Sushi extends Component {
   return (
     <div className="sushi">
       <div className="plate"
-           onClick={() => {this.handleClick(); this.props.spendMoney(); this.props.eatSushi();}}
+           onClick={() => {
+             this.handleClick();
+             if (this.state.isEaten !== true) {
+               this.props.spendMoney(); this.props.eatSushi();
+             }}}
            >
         {this.state.isEaten ===
           true ?
@@ -40,4 +44,4 @@ class Sushi extends Component {
 }
 }
 
-export default Sushi
+export default Sushi;
