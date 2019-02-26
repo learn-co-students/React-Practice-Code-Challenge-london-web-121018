@@ -13,7 +13,7 @@ const SushiContainer = (props) => {
       <div className="belt">
         {
           props.only4Sushi().map((sushi, idx) =>{
-            return <Sushi key={idx} id={sushi.id} name={sushi.name} url={sushi.img_url} price={sushi.price} handleMoneyDeduction={props.handleMoneyDeduction}/> ;
+            return <Sushi key={idx} id={sushi.id} name={sushi.name} url={sushi.img_url} price={sushi.price} handleSushiClick={props.handleSushiClick}/> ;
           })
         }
         <MoreButton  moreSushi={props.moreSushi}/>

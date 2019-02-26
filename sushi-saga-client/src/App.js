@@ -13,7 +13,7 @@ class App extends Component {
     super();
     this.state={
       plates:[],
-      money: 100,
+      wallet: 100,
       firstSushi: 0,
       lastSushi: 4,
       sushi:[]
@@ -46,30 +46,39 @@ class App extends Component {
 
   addPlatesState = () =>{this.setState({plates: this.state.plates.concat("plate")})}
 
-  handleMoneyDeduction = (e) =>{
-    const sushiPrice= parseInt(e.target.alt)
-    console.log(sushiPrice);
+  removeSushiFromSushiState = (id) =>{
+    console.log(id)
+    this.state.sushi.map(sushi => {
+      if(sushi.id === id){
+        sushi.img_url= ""
+      }})
+  }
 
-    if(sushiPrice > this.state.money){
+  handleSushiClick = (e) =>{
+    const sushiPrice= parseInt(e.target.alt)
+    const unqiSushi = parseInt(e.target.id)
+    console.log(sushiPrice, unqiSushi);
+    if(sushiPrice > this.state.wallet){
       window.alert("No free meals, get out of my shop....")
 
     }else{
-      this.setState({money: this.state.money - sushiPrice})
+      this.setState({wallet: this.state.wallet - sushiPrice})
       e.target.src = ''
       e.target.alt = ''
+      this.removeSushiFromSushiState(unqiSushi)
       this.addPlatesState()
     }
   }
 
   handleAddMoneyState = (amount) =>{
-    this.setState({money: this.state.money + parseInt(amount)})
+    this.setState({wallet: this.state.wallet + parseInt(amount)})
   }
 
 
   render() {
     return (
       <div className="app">
-        <SushiContainer only4Sushi={this.handleOnlyFourSushi} moreSushi={this.handleFirstLastAddition} handleMoneyDeduction={this.handleMoneyDeduction}/>
+        <SushiContainer only4Sushi={this.handleOnlyFourSushi} moreSushi={this.handleFirstLastAddition} handleSushiClick={this.handleSushiClick}/>
         <Table money={this.state.money} plates={this.state.plates} addMoney={this.handleAddMoneyState}/>
       </div>
     );
