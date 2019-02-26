@@ -4,7 +4,6 @@ import Table from './containers/Table';
 
 // Endpoint!
 const API = "http://localhost:3000/sushis"
-// const n = 0
 
 class App extends Component {
 
