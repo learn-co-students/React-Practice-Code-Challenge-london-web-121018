@@ -47,18 +47,17 @@ class App extends Component {
   addPlatesState = () =>{this.setState({plates: this.state.plates.concat("plate")})}
 
   handleMoneyDeduction = (e) =>{
-    console.log(e.target.alt)
-    const clickedSushi = this.handleOnlyFourSushi().find(sushi => sushi.name === e.target.alt)
-    console.log(clickedSushi, clickedSushi.price);
+    const sushiPrice= parseInt(e.target.alt)
+    console.log(sushiPrice);
 
-    if(clickedSushi.price > this.state.money){
+    if(sushiPrice > this.state.money){
       window.alert("No free meals, get out of my shop....")
-    }else{
 
-    this.setState({money: this.state.money - clickedSushi.price})
-    e.target.src = ''
-    e.target.alt = ''
-    this.addPlatesState()
+    }else{
+      this.setState({money: this.state.money - sushiPrice})
+      e.target.src = ''
+      e.target.alt = ''
+      this.addPlatesState()
     }
   }
 
