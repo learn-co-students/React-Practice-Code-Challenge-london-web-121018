@@ -40,7 +40,7 @@ class App extends Component {
     return (
       <div className="app">
         <SushiContainer sushis={this.state.sushis} currentFour={this.state.currentFour} nextFour={this.nextFour} budget={this.state.budget} addEmptyPlate={this.addEmptyPlate}/>
-        <Table budget={this.state.budget} />
+        <Table budget={this.state.budget} emptyPlates={this.state.emptyPlates} />
       </div>
     );
   }

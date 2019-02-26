@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 
-const Table = ({budget}) => {
+const Table = ({budget, emptyPlates}) => {
 
   const renderPlates = (array) => {
     return array.map((x, index) => {
@@ -21,7 +21,7 @@ const Table = ({budget}) => {
                and renders an empty plate
                for every element in the array
             */
-            renderPlates([])
+            renderPlates(emptyPlates)
           }
         </div>
       </div>
