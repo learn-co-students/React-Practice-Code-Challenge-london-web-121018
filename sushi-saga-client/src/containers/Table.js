@@ -11,7 +11,7 @@ const Table = (props) => {
   return (
     <Fragment>
       <h2 className="remaining">
-        You have £{parseInt(props.budget) - parseInt(props.expenditure)} remaining!
+        You have £{parseInt(props.budget)} remaining!
       </h2>
       <div className="table">
         <div className="stack">

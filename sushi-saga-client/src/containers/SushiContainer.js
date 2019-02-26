@@ -12,9 +12,11 @@ const SushiContainer = (props) => {
           */
         props.sushis.map(sushi => <Sushi
           id={sushi.id}
+          key={sushi.id}
           name={sushi.name}
           img_url={sushi.img_url}
           price={sushi.price}
+          budget={props.budget}
           spendMoney={props.spendMoney}
           eatSushi={props.eatSushi}
           />)

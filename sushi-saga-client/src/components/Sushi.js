@@ -24,20 +24,20 @@ class Sushi extends Component {
     <div className="sushi">
       <div className="plate"
            onClick={() => {
-             this.handleClick();
-             if (this.state.isEaten !== true) {
-               this.props.spendMoney(); this.props.eatSushi();
+             if (!this.state.isEaten && this.props.price <= this.props.budget) {
+               this.handleClick();
+               this.props.spendMoney(this.props.price); this.props.eatSushi();
              }}}
            >
-        {this.state.isEaten ===
-          true ?
+        {this.state.isEaten ?
             null
           :
             <img src={this.props.img_url} width="100%" alt={this.props.name} />
         }
       </div>
       <h4 className="sushi-details">
-        {this.props.name} - £{this.props.price}
+        Name: {this.props.name}
+        <p>Price: £{this.props.price}</p>
       </h4>
     </div>
   )

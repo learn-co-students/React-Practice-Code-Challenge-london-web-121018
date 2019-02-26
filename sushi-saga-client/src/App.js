@@ -15,7 +15,6 @@ class App extends Component {
       currentSushi: 0,
       budget: 100,
       eatenSushi: [],
-      expenditure: 0
     }
   }
 
@@ -25,11 +24,11 @@ class App extends Component {
     }))
   }
 
-  spendMoney = (event) => {
+  spendMoney = (price) => {
     // let selectedSushi = event.target;
     // console.log(selectedSushi)
     this.setState(prevState => ({
-      expenditure: parseInt(prevState.expenditure) + 15,
+      budget: parseInt(prevState.budget) - price,
     }))
   }
 
@@ -47,6 +46,7 @@ class App extends Component {
         <SushiContainer
         sushis={sushis.slice(currentSushi, currentSushi + 4)}
         moreSushi={this.moreSushi}
+        budget={budget}
         spendMoney={this.spendMoney}
         eatSushi={this.eatSushi}
         eatenSushi={this.eatenSushi}
@@ -54,7 +54,6 @@ class App extends Component {
         <Table
         sushis={sushis}
         budget={budget}
-        expenditure={expenditure}
         eatenSushi={eatenSushi}
         />
       </div>
